@@ -8,9 +8,10 @@ from write import write
 from read import read
 from delete import delete
 from export_json import df_json
+from import_json import add_json_csv
 
 
-# Ф-ция создаст телефонную книгу 'Phonebook.csv' если ее нет
+# Ф-ция создаст телефонную книгу 'Phonebook.csv', если ее нет.
 create_phonebook_csv()
 
 while(True):
@@ -40,21 +41,10 @@ while(True):
         txt = 'ОК!' if command else 'ERROR!'
         log('Преобразование в JSON', txt)
         print('-' * 10)
-
-
-        '''
-    elif command.lower() == 'import_csv':
-
-    elif command.lower() == 'import_xml':
-
     elif command.lower() == 'import_json':
-    
-    elif command.lower() == 'export_csv':
-
-    elif command.lower() == 'export_json':
-
-    elif command.lower() == 'export_xml':
-'''
+        command = add_json_csv()
+        txt = 'ОК!' if command else 'ERROR!'
+        log('Импорт из JSON', txt)
+        print('-' * 10)
     else:
         print('Такой команды нет')
-

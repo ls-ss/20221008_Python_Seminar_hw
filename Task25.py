@@ -9,7 +9,8 @@
 num = int(input('Введите число: '))
 num_bin = ''
 while num > 0:
-    num_bin += '1' if num % 2 else '0'
+#    num_bin += '1' if num % 2 else '0'  # Первый вариант
+    num_bin += str(num % 2)             # Второй вариант, улучшенный
     num //= 2
 
 print('Двоичное представление числа: ', num_bin[::-1])

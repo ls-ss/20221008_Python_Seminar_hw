@@ -1,6 +1,5 @@
 # Ф-ция преобразования телефонного справочника из CSV в JSON формат'
 import pandas as pd
-# from dicttoxml import dicttoxml
 from create_phonebook_csv import phonebook_csv
 
 def df_json():
