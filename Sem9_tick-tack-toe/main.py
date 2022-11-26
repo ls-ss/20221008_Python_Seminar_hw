@@ -35,7 +35,9 @@ def main():
             break
 
     print(*board.get_field(), sep="\n")
+    print("Игра уже завершена")
     tick_tack_toe.TicTacToeBoard.n = 0
+
     input('Начать игру еще раз ("Enter"): ')
     main()
 
