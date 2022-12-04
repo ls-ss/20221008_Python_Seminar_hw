@@ -3,9 +3,6 @@ from telebot import types
 import random as rd
 from log import log
 
-#global num1, num2, num3
-#global a, b, n
-
 # Токен Телеграм-бота
 TOKEN = None
 with open("token.txt") as f:
@@ -15,7 +12,6 @@ bot = telebot.TeleBot(TOKEN)
 # Имя для бота. Нужно в том случае, если обращаться к боту по имени
 BOT_NAME = 'calc_bot'
 bot = telebot.TeleBot(TOKEN)
-
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -63,7 +59,6 @@ def check_callback_data(callback):
 
     txt = ''
     txt2 = ''
-
 # Обработка ответов
     if callback.data == 'sum1':
         txt = 'Сложение: ' + str(a) + ' + ' + str(b) + '. Ваш ответ: '
@@ -103,10 +98,8 @@ def check_callback_data(callback):
 
 # Режим вычитания
     if callback.data == 'sub':
-#        global num1, num2, num3
         num1 = num2 = num3 = -999
 
-#        global a, b, n
         a = rd.randint(-100, 100)
         b = rd.randint(0, 100)
         n = rd.randint(1, 3)
@@ -136,7 +129,6 @@ def check_callback_data(callback):
 
     txt = ''
     txt2 = ''
-
 # Обработка ответов
     if callback.data == 'sub1':
         txt = 'Вычитание: ' + str(a) + ' - ' + str(b) + '. Ваш ответ: '
@@ -207,7 +199,6 @@ def check_callback_data(callback):
 
     txt = ''
     txt2 = ''
-
 # Обработка ответов
     if callback.data == 'multi1':
         txt = 'Умножение: ' + str(a) + ' * ' + str(b) + '. Ваш ответ: '
@@ -248,26 +239,3 @@ def check_callback_data(callback):
 
 if __name__ == '__main__':
      bot.infinity_polling() # Чтобы бот старался не прекращать работу
-
-'''    
-@bot.message_handler(commands=['button'])
-def button_message(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    item1 = types.KeyboardButton("Кнопка")
-    markup.add(item1)
-    bot.send_message(message.chat.id, 'Нажмите на нужную кнопку', reply_markup=markup)
-
-
-@bot.message_handler(content_types=['text'])
-def message_reply(message):
-    if message.text == "Кнопка":
-        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        item1 = types.KeyboardButton("Кнопка 2")
-        markup.add(item1)
-        bot.send_message(message.chat.id, 'Выберите что вам надо', reply_markup=markup)
-    elif message.text == "Кнопка 2":
-        bot.send_message(message.chat.id, 'Спасибо за прочтение статьи!')
-
-# bot.infinity_polling() # Чтобы бот старался не прекращать работу
-
-'''
